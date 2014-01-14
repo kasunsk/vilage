@@ -38,33 +38,34 @@ public class Control {
 		
 		Persion persion = new Persion();
 		
-		System.out.println("Now you are going to add a persion to the data base...");
+		System.out.println("Now you are going to add a persion to the data base");
+		System.out.println();
 		
 		System.out.print("Name : ");
+		input.nextLine();
 		String name = input.nextLine();
 		persion.setName(name);
 		
 		System.out.print("ID Number : ");
 		String id = input.next();
 		persion.setId(id);
-		System.out.println();
 		
 		System.out.print("Sex (m or f) :  ");
 		String sex = input.next();
-		System.out.println();
 		while(!(sex.equals("m") || sex.equals("f") )){
 			System.out.print("Sex (m or f) :  ");
 			sex = input.nextLine();
+			
 		}
 		if (sex.equals("m"))
 			persion.setSex("Male");
 		else 
 			persion.setSex("Female");
-				 
+		
 		System.out.print("Address : ");
+		input.nextLine();
 		String add = input.nextLine();
 		persion.setAddres(add);
-		System.out.println();
 		
 		System.out.print("TP Number : ");
 		String tp = input.next();
@@ -72,12 +73,13 @@ public class Control {
 		System.out.println();
 		
 		System.out.println("Persion data succesfully added !");
+		
+		System.out.println();
 		System.out.println("Name : "+persion.getName());
 		System.out.println("ID : "+persion.getId());
 		System.out.println("Sex : "+persion.getSex());
 		System.out.println("Address : "+persion.getAddress());
 		System.out.println("TP Number : "+persion.getTpNum());
-		
 		
 	}
 	}
