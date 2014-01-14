@@ -34,8 +34,6 @@ public class Control {
 		a = input.nextInt();
 	}
 	
-	Scanner input1 = new Scanner(System.in);
-	
 	if (a == 1){
 		
 		Persion persion = new Persion();
@@ -47,7 +45,7 @@ public class Control {
 		persion.setName(name);
 		
 		System.out.print("ID Number : ");
-		String id = input1.next();
+		String id = input.next();
 		persion.setId(id);
 		System.out.println();
 		
