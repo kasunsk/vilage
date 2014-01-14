@@ -2,6 +2,7 @@ package controler;
 
 import java.util.Scanner;
 import data.Persion;
+import data.DBConnection;
 
 public class Control {
 
@@ -73,6 +74,10 @@ public class Control {
 		System.out.println();
 		
 		System.out.println("Persion data succesfully added !");
+		
+		DBConnection db = new DBConnection();
+		db.dbConnection();
+		
 		
 		System.out.println();
 		System.out.println("Name : "+persion.getName());
