@@ -1,7 +1,7 @@
-package main.java.controler;
+package controler;
 
 import java.util.Scanner;
-import main.java.data.Persion;
+import data.Persion;
 
 public class Control {
 
@@ -34,6 +34,8 @@ public class Control {
 		a = input.nextInt();
 	}
 	
+	Scanner input1 = new Scanner(System.in);
+	
 	if (a == 1){
 		
 		Persion persion = new Persion();
@@ -41,11 +43,11 @@ public class Control {
 		System.out.println("Now you are going to add a persion to the data base...");
 		
 		System.out.print("Name : ");
-		String name = input.next();
+		String name = input.nextLine();
 		persion.setName(name);
 		
 		System.out.print("ID Number : ");
-		String id = input.next();
+		String id = input1.next();
 		persion.setId(id);
 		System.out.println();
 		
@@ -60,11 +62,9 @@ public class Control {
 			persion.setSex("Male");
 		else 
 			persion.setSex("Female");
-		
-		System.out.println();
-		 
+				 
 		System.out.print("Address : ");
-		String add = input.next();
+		String add = input.nextLine();
 		persion.setAddres(add);
 		System.out.println();
 		

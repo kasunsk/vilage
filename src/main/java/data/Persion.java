@@ -1,4 +1,4 @@
-package main.java.data;
+package data;
 
 public class Persion {
 	
@@ -51,5 +51,4 @@ public class Persion {
 	public void setTpNumber(String tpnumber){
 		this.tpnumber = tpnumber;
 	}
-
 }
