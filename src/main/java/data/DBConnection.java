@@ -17,18 +17,13 @@ public class DBConnection {
 		
 	}
 	
-	public void dbConnection(){
+	public static Connection dbConnection(){
 	{
-	Connection con;
+	Connection con = null;
 	try {
 		 con =
-	       DriverManager.getConnection("jdbc:mysql://localhost/test?" +
+	       DriverManager.getConnection("jdbc:mysql://localhost/vilage?" +
 	                                   "user=root&password=root");
-		 Statement st = (Statement) con.createStatement();
-		 
-		 st.executeUpdate("INSERT INTO test " + "VALUES ('Aruni','90V', 'female')");
-		 
-		 con.close();
 		
 	} catch (SQLException ex) {
 	    // handle any errors
@@ -36,6 +31,23 @@ public class DBConnection {
 	    log.error("SQLState: " + ex.getSQLState());
 	    log.error("VendorError: " + ex.getErrorCode());
 		}
+		return con;
 	}
+		
+	}
+	
+public void test() throws SQLException{
+		Connection con=dbConnection();
+		Statement st = (Statement) con.createStatement();
+		//st.executeUpdate("INSERT INTO test " + "VALUES ('");
+}
+	
+public void addPersion( String name,String id,String sex,String addres, String tp) throws SQLException{
+		Connection con=dbConnection();
+		Statement st = (Statement) con.createStatement();
+		
+		st.executeUpdate("INSERT INTO persion VALUES ('"+id+"','"+name+"', '"+sex+"','"+addres+"','"+tp+"')");
+		
+		con.close();
 	}
 }

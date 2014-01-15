@@ -1,12 +1,19 @@
 package controler;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+
 import data.Persion;
 import data.DBConnection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Control {
 
-	public static void main(String[] args) {
+	private static final Logger log = LoggerFactory.getLogger(Control.class);
+	
+	public static void main(String[] args) throws SQLException {	
 		String username = "ka";
 		String password = "fu";
 		System.out.println("Enter the User Name and Password ");
@@ -24,6 +31,8 @@ public class Control {
 			}
 			System.out.println("");
 		}
+		
+		log.info("Entered to worked...");
 		
 		System.out.println("Select");
 		System.out.println("1 if you want to add a persion to database");
@@ -65,19 +74,18 @@ public class Control {
 		
 		System.out.print("Address : ");
 		input.nextLine();
-		String add = input.nextLine();
-		persion.setAddres(add);
+		String addres = input.nextLine();
+		persion.setAddres(addres);
 		
 		System.out.print("TP Number : ");
 		String tp = input.next();
 		persion.setTpNumber(tp);
 		System.out.println();
-		
-		System.out.println("Persion data succesfully added !");
-		
+	
 		DBConnection db = new DBConnection();
-		db.dbConnection();
+		db.addPersion(persion.getId(), persion.getName(),persion.getSex(), persion.getAddress(),persion.getTpNum());
 		
+		log.info("Persion data succesfully added !");
 		
 		System.out.println();
 		System.out.println("Name : "+persion.getName());
