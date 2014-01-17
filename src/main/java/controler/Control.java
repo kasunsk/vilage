@@ -9,27 +9,34 @@ import data.DBConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import user_interface.Welcome;
+import data.Config;
+
 public class Control {
 
 	private static final Logger log = LoggerFactory.getLogger(Control.class);
 	
 	public static void main(String[] args) throws SQLException {	
-		String username = "ka";
-		String password = "fu";
 		System.out.println("Enter the User Name and Password ");
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		while(!(username.equals("kasun") && password.equals("fuck"))){
+		
+		System.out.print("Username : ");
+		String username = input.nextLine();
+		
+		System.out.print("Password : ");
+		String password = input.nextLine();
+		
+		Config config = new Config();
+		
+		while(!(config.chekAuthenticate(username,password))){
 			System.out.print("Username : ");
 			username = input.nextLine();
 			
 			System.out.print("Password : ");
 			password = input.nextLine();
 			
-			if(!(username.equals("kasun") && password.equals("fuck"))){
-				System.out.print("Your username or password is wrong.. Try again...");
-			}
-			System.out.println("");
+			System.out.println("Your username or password is wrong.. Try again...");
 		}
 		
 		log.info("Entered to worked...");
@@ -81,7 +88,7 @@ public class Control {
 		String tp = input.next();
 		persion.setTpNumber(tp);
 		System.out.println();
-	
+		
 		DBConnection db = new DBConnection();
 		db.addPersion(persion.getId(), persion.getName(),persion.getSex(), persion.getAddress(),persion.getTpNum());
 		
