@@ -15,7 +15,8 @@ jar {
 
 buildscript {
 	repositories {
-		mavenCentral()
+		//mavenCentral()
+		maven { url "http://localhost:8081/artifactory/all" }
 	}
 	dependencies {
 		classpath 'mysql:mysql-connector-java:5.1.28'
@@ -23,21 +24,23 @@ buildscript {
 }
  
 repositories {
-	mavenCentral()
+	//mavenCentral()
+	maven { url "http://localhost:8081/artifactory/all" }
 }
  
 dependencies {
 	compile 	'joda-time:joda-time:2.3',
 				'net.sf.supercsv:super-csv:2.1.0',
-				'log4j:log4j:1.2.17',
+			//	'log4j:log4j:1.2.17',
 				'mysql:mysql-connector-java:5.1.28',
 				'org.slf4j:slf4j-api:'+slf4jVesrion,
-				'org.slf4j:slf4j-log4j12:'+slf4jVesrion,
-				'org.eclipse.jface:text:3.3.0-v20070606-0010',
-				'org.eclipse.swt:jmx:1.0.0-v20070510'
+			//	'org.slf4j:slf4j-log4j12:'+slf4jVesrion,
+			//	'org.eclipse:jface:3.3.0-I20070606-0010',
+			//	'org.eclipse.swt:jmx:1.0.0-v20070510',
+				'org.apache.logging.log4j:log4j-core:2.0-beta9',
+				'org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9'
 				
-
-	testCompile group: 'junit', name: 'junit', version: '4.+'
+	testCompile  'junit:junit:4.+'
 }
 
 task wrapper(type: Wrapper) {
