@@ -6,38 +6,28 @@ import java.util.Scanner;
 import data.Persion;
 import data.DBConnection;
 
+import org.eclipse.swt.widgets.Display;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import user_interface.Welcome;
-import data.Config;
+//import data.Config;
 
 public class Control {
 
 	private static final Logger log = LoggerFactory.getLogger(Control.class);
 	
 	public static void main(String[] args) throws SQLException {	
-		System.out.println("Enter the User Name and Password ");
+		
+		String[] arguments = new String[] {"123"};
+		Welcome.main(arguments);
+		//Welcome welcome = new Welcome();
+		//welcome.run();
+//		welcome.setBlockOnOpen(true);
+//		welcome.open();
+//		Display.getCurrent().dispose();
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		
-		System.out.print("Username : ");
-		String username = input.nextLine();
-		
-		System.out.print("Password : ");
-		String password = input.nextLine();
-		
-		Config config = new Config();
-		
-		while(!(config.chekAuthenticate(username,password))){
-			System.out.print("Username : ");
-			username = input.nextLine();
-			
-			System.out.print("Password : ");
-			password = input.nextLine();
-			
-			System.out.println("Your username or password is wrong.. Try again...");
-		}
 		
 		log.info("Entered to worked...");
 		
