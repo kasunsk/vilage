@@ -1,4 +1,4 @@
-package data;
+package main.java.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,21 +27,14 @@ public class DBConnection {
 		
 	} catch (SQLException ex) {
 	    // handle any errors
-	    log.error("SQLException: " + ex.getMessage());
-	    log.error("SQLState: " + ex.getSQLState());
-	    log.error("VendorError: " + ex.getErrorCode());
+	    //log.error("SQLException: " + ex.getMessage());
+	    //log.error("SQLState: " + ex.getSQLState());
+	    //log.error("VendorError: " + ex.getErrorCode());
 		}
 		return con;
 	}
 		
 	}
-	
-public void test() throws SQLException{
-		Connection con=dbConnection();
-		Statement st = (Statement) con.createStatement();
-		//st.executeUpdate("INSERT INTO test " + "VALUES ('");
-}
-	
 public void addPersion( String name,String id,String sex,String addres, String tp) throws SQLException{
 		Connection con=dbConnection();
 		Statement st = (Statement) con.createStatement();
